@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ppd:ppd:2.01">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ppd/ppd/2.01/ppd-2.01.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ppd/ppd/2.01/ppd-2.01-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ppd/ppd/2.01/ppd-2.01-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
