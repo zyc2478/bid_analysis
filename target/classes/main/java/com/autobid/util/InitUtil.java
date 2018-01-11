@@ -2,12 +2,11 @@ package com.autobid.util;
 
 /**
  * @author Richard Zeng
- * @ClassName: AuthInit
- * @Description: 认证初始化程序，token每7天就会失效，需要定时刷新
- * @Date 2018年1月10日 下午5:11:30
+ * @ClassName: InitUtil
+ * @Description: 认证初始化程序，token�?7天就会失效，�?要定时刷�?
+ * @Date 2018�?1�?10�? 下午5:11:30
  */
 
-import com.autobid.service.util.TokenInit;
 import com.autobid.service.util.TokenUtil;
 import com.ppdai.open.core.OpenApiClient;
 import com.ppdai.open.core.RsaCryptoHelper;
@@ -18,7 +17,7 @@ import redis.clients.jedis.Jedis;
  * 跳转到AC的oauth2.0联合登录
  * https://ac.ppdai.com/oauth2/login?AppID=7344c77f9a7f4f249bd9df04115171e6&ReturnUrl=http://bidbydebt.com/auth/gettoken
  * <p>
- * 登录成功后 oauth2.0 跳转到http://bidbydebt.com/auth/gettoken?code=c903ccbbe24549c0b603d1f172b4f149
+ * 登录成功�? oauth2.0 跳转到http://bidbydebt.com/auth/gettoken?code=c903ccbbe24549c0b603d1f172b4f149
  */
 
 public class InitUtil {
@@ -40,7 +39,7 @@ public class InitUtil {
 
         jedis = new Jedis(redisHost, redisPort);
 /*
-        //如果TokenInit配置项不存在，则初始化Token，存储在Redis中
+        //如果TokenInit配置项不存在，则初始化Token，存储在Redis�?
         if (TokenUtil.determineTokenInitExists()) {
             TokenInit.initToken();
         }

@@ -3,7 +3,8 @@ package com.autobid.service;
 import com.ppdai.open.core.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.log4j.Logger;
+
+import java.util.List;
 
 /**
  * @Author Richard Zeng
@@ -15,7 +16,6 @@ import org.apache.log4j.Logger;
 @SuppressWarnings("deprecation")
 public class PPDService {
 
-//    private static Logger logger = Logger.getLogger(PPDService.class);
 /*
      BidService.BidList返回JSON
     {
@@ -49,5 +49,64 @@ public class PPDService {
         JSONObject resultJSON = JSONObject.fromObject(result.getContext());
         JSONArray bidListArray = resultJSON.getJSONArray("BidList");
         return bidListArray;
+    }
+/*
+    LLoanInfoService.BatchListingInfos接口返回JSON
+    {
+        "LoanInfos": [
+            {
+                "FistBidTime": null,
+                "LastBidTime": null,
+                "LenderCount": 0,
+                "AuditingTime": null,
+                "RemainFunding": 1500,
+                "DeadLineTimeOrRemindTimeStr": "2016/11/19",
+                "CreditCode": "AA",
+                "ListingId": 23886149,
+                "Amount": 1500,
+                "Months": 42,
+                "CurrentRate": 12.0085,
+                "BorrowName": "zhangsan",
+                "Gender": 1,
+                "EducationDegree": "专科",
+                "GraduateSchool": "四川工业科技学院",
+                "StudyStyle": "普通",
+                "Age": 22,
+                "SuccessCount": 0,
+                "WasteCount": 0,
+                "CancelCount": 0,
+                "FailedCount": 0,
+                "NormalCount": 0,
+                "OverdueLessCount": 0,
+                "OverdueMoreCount": 0,
+                "OwingPrincipal": 0,
+                "OwingAmount": 0,
+                "AmountToReceive": 0,
+                "FirstSuccessBorrowTime": null,
+                "LastSuccessBorrowTime": null,
+                "RegisterTime": "2016-11-04T04:57:40.473",
+                "CertificateValidate": 1,
+                "NciicIdentityCheck": 0,
+                "PhoneValidate": 1,
+                "VideoValidate": 0,
+                "CreditValidate": 0,
+                "EducateValidate": 1,
+                "HighestPrincipal":500.00,
+                "HighestDebt":500.00,
+                "TotalPrincipal":500.00
+            },
+            {
+                "xx": "……"
+            }
+        ],
+        "Result": 1,
+        "ResultMessage": "",
+        "ResultCode": null
+    }
+ */
+    public static JSONArray batchListingInfos(List<Integer> listIds) throws Exception {
+        String url = "https://openapi.ppdai.com/invest/LLoanInfoService/BatchListingInfos";
+        Result result = OpenApiClient.send(url, new PropertyObject("ListingIds", listIds, ValueTypeEnum.Other));
+        return JSONObject.fromObject(result.getContext()).getJSONArray("LoanInfos");
     }
 }

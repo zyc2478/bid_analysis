@@ -2,12 +2,11 @@ package com.autobid.util;
 
 /**
  * @author Richard Zeng
- * @ClassName: AuthInit
+ * @ClassName: InitUtil
  * @Description: 认证初始化程序，token每7天就会失效，需要定时刷新
  * @Date 2018年1月10日 下午5:11:30
  */
 
-import com.autobid.service.util.TokenInit;
 import com.autobid.service.util.TokenUtil;
 import com.ppdai.open.core.OpenApiClient;
 import com.ppdai.open.core.RsaCryptoHelper;
