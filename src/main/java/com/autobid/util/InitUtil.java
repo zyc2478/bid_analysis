@@ -7,7 +7,6 @@ package com.autobid.util;
  * @Date 2018年1月10日 下午5:11:30
  */
 
-import com.autobid.service.util.TokenUtil;
 import com.ppdai.open.core.OpenApiClient;
 import com.ppdai.open.core.RsaCryptoHelper;
 import redis.clients.jedis.Jedis;

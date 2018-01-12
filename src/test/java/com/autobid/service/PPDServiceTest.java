@@ -28,7 +28,7 @@ public class PPDServiceTest {
         System.out.println(token);
         JSONArray bidListArray = PPDService.bidList(token,"2017-10-01","2017-10-31",1,50);
         for(Object bidListObj:bidListArray){
-            System.out.println(bidListObj);
+            System.out.println("testBidList最终结果是："+bidListObj);
         }
     }
 
@@ -41,7 +41,7 @@ public class PPDServiceTest {
         listIds.add(92711160);
         JSONArray listingInfosArray = PPDService.batchListingInfos(listIds);
         for(Object listingInfos:listingInfosArray){
-            logger.info(listingInfos.toString());
+            logger.info("最终结果是："+listingInfos.toString());
         }
     }
 }

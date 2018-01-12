@@ -7,7 +7,6 @@ package com.autobid.util;
  * @Date 2018å¹?1æœ?10æ—? ä¸‹åˆ5:11:30
  */
 
-import com.autobid.service.util.TokenUtil;
 import com.ppdai.open.core.OpenApiClient;
 import com.ppdai.open.core.RsaCryptoHelper;
 import redis.clients.jedis.Jedis;

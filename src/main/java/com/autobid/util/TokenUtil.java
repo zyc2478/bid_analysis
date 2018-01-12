@@ -1,6 +1,5 @@
-package com.autobid.service.util;
+package com.autobid.util;
 
-import com.autobid.util.InitUtil;
 import com.ppdai.open.core.OpenApiClient;
 import redis.clients.jedis.Jedis;
 

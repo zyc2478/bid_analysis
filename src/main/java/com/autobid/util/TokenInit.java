@@ -1,6 +1,5 @@
-package com.autobid.service.util;
+package com.autobid.util;
 
-import com.autobid.util.InitUtil;
 import com.ppdai.open.core.AuthInfo;
 import com.ppdai.open.core.OpenApiClient;
 import org.apache.log4j.Logger;
@@ -13,7 +12,7 @@ public class TokenInit {
 
     private static Logger logger = Logger.getLogger("TokenInit.class");
     private static String code;
-    private static boolean initFlag = false;
+//    private static boolean initFlag = false;
 
     static {
         try {
@@ -37,7 +36,6 @@ public class TokenInit {
         */
     public static void initToken() throws Exception {
         InitUtil.init();
-        initFlag = true;
         System.out.println("code is:" + code);
         //authInfo = OpenApiClient.authorize("9ca3fb6357b04c5385fd51d1e6db9922");
         AuthInfo authInfo = OpenApiClient.authorize(code);
@@ -56,9 +54,9 @@ public class TokenInit {
 
     }
 
-    public static boolean getInitFlag() {
-        return initFlag;
-    }
+//    public static boolean getInitFlag() {
+//        return initFlag;
+//    }
 
     @Test
     public void testInitToken() throws Exception {
