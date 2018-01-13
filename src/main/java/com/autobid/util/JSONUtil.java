@@ -13,14 +13,6 @@ import java.io.IOException;
  */
 public class JSONUtil {
 
-
-    /*
-     * @Method: JSONToObj
-     * @Description: 将JSON转化为实体Object
-     * @Param: [jsonStr, obj]
-     * @Return: java.lang.Object
-     * @Date: 2018/1/12 15:23
-     */
     public static <T> Object JSONToObj(String jsonStr, Class<T> obj) {
         T t = null;
         try {
@@ -33,15 +25,14 @@ public class JSONUtil {
         return t;
     }
 
-
-    /**
-     * @param obj
-     * @param <T>
-     * @return
-     * @throws JSONException
-     * @throws IOException
-     */
-    public static <T> JSONObject objectToJson(T obj) throws JSONException, IOException {
+    /*
+     * @Method:
+     * @Description:
+     * @Param:
+     * @Return:
+     * @Throws:
+     * @Date: 2018/1/13 21:54
+     */public static <T> JSONObject objectToJson(T obj) throws JSONException, IOException {
         ObjectMapper mapper = new ObjectMapper();
         // Convert object to JSON string
         String jsonStr = "";
