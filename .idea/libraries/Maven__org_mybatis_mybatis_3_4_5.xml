@@ -1,5 +1,8 @@
 <component name="libraryTable">
   <library name="Maven: org.mybatis:mybatis:3.4.5">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/../BidByDebt" />
+    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5.jar!/" />
     </CLASSES>

@@ -14,7 +14,7 @@ public class MyBatisUtil {
      * @return SqlSessionFactory
      */
     private static SqlSessionFactory getSqlSessionFactory() {
-        String resource = "conf.xml";
+        String resource = "mybatis-config.xml";
         InputStream is = MyBatisUtil.class.getClassLoader().getResourceAsStream(resource);
         return new SqlSessionFactoryBuilder().build(is);
     }
@@ -24,6 +24,7 @@ public class MyBatisUtil {
      *
      * @return SqlSession
      */
+    @SuppressWarnings("deprecation")
     public static SqlSession getSqlSession() {
         return getSqlSessionFactory().openSession();
     }

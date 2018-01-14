@@ -13,6 +13,13 @@ import java.io.IOException;
  */
 public class JSONUtil {
 
+    /*
+     * @Method: JSONToObj
+     * @Description: JSON String convert to entity object
+     * @Param: [jsonStr, obj]
+     * @Return: java.lang.Object
+     * @Date: 18/1/14 обнГ5:28
+     */
     public static <T> Object JSONToObj(String jsonStr, Class<T> obj) {
         T t = null;
         try {
@@ -26,13 +33,14 @@ public class JSONUtil {
     }
 
     /*
-     * @Method:
-     * @Description:
-     * @Param:
-     * @Return:
-     * @Throws:
-     * @Date: 2018/1/13 21:54
-     */public static <T> JSONObject objectToJson(T obj) throws JSONException, IOException {
+     * @Method: objectToJson
+     * @Description: Object convert to JSON String
+     * @Param: [obj]
+     * @Return: net.sf.json.JSONObject
+     * @Date: 18/1/14 обнГ5:27
+     */
+    public static <T> JSONObject objectToJson(T obj) throws JSONException, IOException {
+
         ObjectMapper mapper = new ObjectMapper();
         // Convert object to JSON string
         String jsonStr = "";
