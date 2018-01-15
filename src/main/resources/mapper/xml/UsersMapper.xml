@@ -59,7 +59,7 @@
     from users
   </select>
 
-  <select id="getUser" parameterType="int"
+  <select id="getUser" parameterType="java.lang.Integer"
           resultType="com.autobid.model.Users">
     select * from users where id=#{id}
   </select>

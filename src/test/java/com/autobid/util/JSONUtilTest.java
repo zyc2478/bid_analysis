@@ -1,5 +1,6 @@
 package com.autobid.util;
 
+import com.autobid.mapping.UsersMapper;
 import com.autobid.model.Users;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,26 +44,33 @@ public class JSONUtilTest {
                 .createJsonGenerator(System.out, JsonEncoding.UTF8);*/
     }
 
+
     @Test
-    public void testAddUser(){
+    public void testSelectOneUserSession(){
         //SqlSession session = MyBatisUtil.getSqlSession(true);
-        String resource = "mybatis-config.xml";
+/*        String resource = "mybatis-config.xml";
         InputStream is = JSONUtilTest.class.getClassLoader().getResourceAsStream(resource);
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
-        SqlSession session = sessionFactory.openSession(true);
+        SqlSession session = sessionFactory.openSession(true);*/
+        SqlSession session = MyBatisUtil.getSqlSession(true);
         String statement = "com.autobid.mapping.UsersMapper.getUser";
         Users selectUser = session.selectOne(statement,1);
         System.out.println(selectUser);
-        try {
-            //UsersMapper userDao= (UsersMapper) session.getMapper(Users.class);
-/*            Users user = new Users();
-            String userStr = "{\"id\":1001,\"name\":\"Richard\",\"age\":37}";
-            Users newUser = (Users) JSONUtil.JSONToObj(userStr,Users.class);
-            userDao.insert(newUser);*/
+    }
 
-//            session.commit() ;
-        } finally {
-            session.close();
-        }
+    @Test
+    public void testSelectOneUserDao(){
+        UsersMapper userDao = (UsersMapper) MyBatisUtil.getSqlSession(true).getMapper(UsersMapper.class);
+        Users user = userDao.getUser(1);
+        System.out.println(user);
+    }
+
+    @Test
+    public void testInsertUserFromJson(){
+        String userStr = "{\"id\":5,\"name\":\"Richard\",\"age\":37}";
+        Users newUser = (Users) JSONUtil.JSONToObj(userStr,Users.class);
+        UsersMapper userDao = (UsersMapper) MyBatisUtil.getSqlSession(true).getMapper(UsersMapper.class);
+        System.out.println(newUser);
+        userDao.insert(newUser);
     }
 }
