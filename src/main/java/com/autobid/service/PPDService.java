@@ -1,6 +1,8 @@
 package com.autobid.service;
 
+import com.autobid.util.Log4JUtil;
 import com.ppdai.open.core.*;
+import com.sun.istack.internal.logging.Logger;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -16,6 +18,7 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class PPDService {
 
+    private static Logger logger = Logger.getLogger(PPDService.class);
 /*
      BidService.BidList返回JSON
     {
@@ -47,6 +50,7 @@ public class PPDService {
                     new PropertyObject("PageSize",pageSize, ValueTypeEnum.Int32));
         }
         JSONObject resultJSON = JSONObject.fromObject(result.getContext());
+        logger.info(String.valueOf(resultJSON));
         JSONArray bidListArray = resultJSON.getJSONArray("BidList");
         return bidListArray;
     }
