@@ -14,7 +14,7 @@ public class PPDServiceTest {
 
     private static String token = "";
 
-    static{
+    public void init() {
         try {
             InitUtil.init();
             token = InitUtil.getToken();
@@ -25,6 +25,7 @@ public class PPDServiceTest {
 
     @Test
     public void testBidListPeriod() throws Exception {
+        init();
         System.out.println(token);
         JSONArray bidListArray = PPDService.bidList(token,"2017-10-01","2017-10-31",1,50);
         for(Object bidListObj:bidListArray){
