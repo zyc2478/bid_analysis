@@ -1,6 +1,6 @@
 package com.autobid.util;
 
-import com.autobid.dao.UserMapper;
+import com.autobid.dao.IUserDao;
 import com.autobid.model.User;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -51,14 +51,14 @@ public class JSONUtilTest {
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
         SqlSession session = sessionFactory.openSession(true);*/
         SqlSession session = MyBatisUtil.getSqlSession(true);
-        String statement = "com.autobid.dao.UserMapper.getUser";
+        String statement = "com.autobid.dao.IUserDao.getUser";
         User selectUser = session.selectOne(statement, 1);
         System.out.println(selectUser);
     }
 
     @Test
     public void testSelectOneUserDao() {
-        UserMapper userDao = (UserMapper) MyBatisUtil.getSqlSession(true).getMapper(UserMapper.class);
+        IUserDao userDao = (IUserDao) MyBatisUtil.getSqlSession(true).getMapper(IUserDao.class);
         User user = userDao.getUser(2);
         System.out.println(user);
     }
@@ -67,7 +67,7 @@ public class JSONUtilTest {
     public void testInsertUserFromJson() {
         String userStr = "{\"id\":15,\"name\":\"Richard\",\"age\":37}";
         User newUser = (User) JSONUtil.JSONToObj(userStr, User.class);
-        UserMapper userDao = (UserMapper) MyBatisUtil.getSqlSession(true).getMapper(UserMapper.class);
+        IUserDao userDao = (IUserDao) MyBatisUtil.getSqlSession(true).getMapper(IUserDao.class);
         //System.out.println(newUser);
         System.out.println(userDao.insert(newUser));
     }
