@@ -1,6 +1,6 @@
 ##ignore this file##
 /target/
-/src/db.properties
+/jdbc.properties
 /logs/
 /.idea/
 .classpath
