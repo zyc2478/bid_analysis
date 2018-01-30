@@ -3,7 +3,6 @@ package com.autobid.util;
 import com.ppdai.open.core.AuthInfo;
 import com.ppdai.open.core.OpenApiClient;
 import org.apache.log4j.Logger;
-import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,14 +51,5 @@ public class TokenInit {
         TokenUtil.setTokenInit(token);
         TokenUtil.setRefreshTokenInit(refreshToken);
 
-    }
-
-//    public static boolean getInitFlag() {
-//        return initFlag;
-//    }
-
-    @Test
-    public void testInitToken() throws Exception {
-        TokenInit.initToken();
     }
 }
