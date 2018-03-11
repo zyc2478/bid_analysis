@@ -22,8 +22,10 @@ public class HelloMvcController {
 
    // @CrossOrigin(origins="*",maxAge=3600)
     //@RequestMapping(value="/getUser/{userID}",method= RequestMethod.GET)
-    @RequestMapping(value="/getUser/{userID}", produces = "application/json; charset=utf-8")
-    public @ResponseBody User getUser(@PathVariable int userID) {
+    @CrossOrigin(origins="*",maxAge=3600)
+    @RequestMapping(value="/getUser/{userID}", produces = "text/json; charset=utf-8")
+    @ResponseBody
+    public User getUser(@PathVariable int userID) {
 /*        User u = new User();
         u.setName("Richard");
         u.setAge(38);

@@ -4,12 +4,24 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
     <display-name>Archetype Created Web Application</display-name>
-    <!-- Spring和mybatis的配置文件 -->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-mybatis.xml</param-value>
-    </context-param>
-    <!-- 编码过滤器 -->
+    <!-- 配置请求过滤器，编码格式设为UTF-8，避免中文乱码-->
+    <filter>
+        <filter-name>springUtf8Encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>springUtf8Encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+<!--    &lt;!&ndash; 编码过滤器 &ndash;&gt;
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -22,7 +34,14 @@
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
+
+    <!-- Spring和mybatis的配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mybatis.xml</param-value>
+    </context-param>
+
     <!-- Spring监听器 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
